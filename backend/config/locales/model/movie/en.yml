@@ -1,0 +1,16 @@
+en:
+  activerecord:
+    models:
+      movie: Movie
+    attributes:
+      movie:
+        title: Title
+        description: Description
+        url: URL
+        youtube_id: Youtube ID
+    errors:
+      models:
+        movie:
+          attributes:
+            url:
+              invalid_format: "Youtube link is wrong format"

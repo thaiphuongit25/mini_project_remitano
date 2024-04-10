@@ -1,0 +1,39 @@
+en:
+  api:
+    errors:
+      record_invalid:
+        code: '10'
+        message: "%{model} is invalid"
+      update_invalid:
+        code: '11'
+        message: "%{model} cannot be updated"
+      record_not_found:
+        code: '30'
+        message: data not found
+      parameter_missing:
+        code: '40'
+        message: "Please enter %{param}"
+      invalid_token:
+        code: '50'
+        message: Invalid token
+      argument_error:
+        code: '90'
+        message: There is an error in the sending parameters
+      bad_credentials:
+        code: '99'
+        message: Please login!
+      user_not_found:
+        code: '92'
+        message: User not found or not logged in
+      email_invalid:
+        code: '98'
+        message: Email address format is invalid
+      email_not_found:
+        code: '99'
+        message: This e-mail address is not registered
+      forbidden_error:
+        code: '10'
+        message: You do not have permission to view the specified page
+      unauthorized:
+        code: '401'
+        message: You need to login to continue

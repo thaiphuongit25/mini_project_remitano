@@ -28,7 +28,6 @@ module Backend
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w(assets tasks))
-
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
@@ -41,5 +40,26 @@ module Backend
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+    config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.{rb,yml}')]
+
+    config.generators do |g|
+      g.integration_tool = :rspec
+      g.system_tests = :rspec
+      g.test_framework :rspec,
+                       fixture: true,
+                       view_specs: false,
+                       helper_specs: false,
+                       routing_specs: false,
+                       controller_specs: false,
+                       request_specs: true,
+                       system_specs: false
+
+      g.fixture_replacement :factory_bot, dir: 'spec/factories'
+      g.view false
+      g.helper false
+      g.assets false
+      g.decorator true
+      g.serializer true
+    end
   end
 end
