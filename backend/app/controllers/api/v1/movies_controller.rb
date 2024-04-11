@@ -12,7 +12,7 @@ module Api
       def create
         @movie = current_user.movies.build(movie_params)
         @movie.save!
-        #NotifyNewMovieJob.perform_later(current_user, @movie)
+        NotifyNewMovieJob.perform_later(current_user, @movie)
         render json: @movie, serializer: MovieSerializer, status: :created
       end
 
