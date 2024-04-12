@@ -21,12 +21,16 @@ const Form = () => {
       toast.success('Movie created successfully')
     } catch (error) {
       const errorDetail = error?.response?.data?.detail;
-      Object.values(errorDetail).forEach(errorMessages => {
-        errorMessages.forEach(errorMessage => {
-          console.log(errorMessage);
-          toast.error(errorMessage)
-        })
-      });
+      if (errorDetail) {
+        Object.values(errorDetail).forEach(errorMessages => {
+          errorMessages.forEach(errorMessage => {
+            toast.error(errorMessage);
+          })
+        });
+      } else {
+        toast.error(error?.response?.error)
+      }
+      // router.push('/share')
     }
   }
 
@@ -53,7 +57,7 @@ const Form = () => {
           </div>
           <br/>
           <div className="flex justify-center mb-5">
-            <button className='w-1/2 border py-2 px-4 rounded' onClick={createMovie}>Share</button>
+            <button id="btn_share" className='w-1/2 border py-2 px-4 rounded' onClick={createMovie}>Share</button>
           </div>
       </div>
     </div>

@@ -95,6 +95,7 @@ const Header = ({ title }: HeaderProps) => {
         <input
           type="email"
           placeholder="Email"
+          id='email'
           value={userRequest?.email}
           className='form-control'
           onChange={(e) => handleSetUserRequest('email', e.target.value)}
@@ -102,11 +103,12 @@ const Header = ({ title }: HeaderProps) => {
         <input
           type="password"
           placeholder="Password"
+          id="password"
           value={userRequest?.password}
           onChange={(e) => handleSetUserRequest('password', e.target.value)}
         />
-        <button onClick={(e) => handleLoginOrSignUp(e, 'login') } >Login</button>
-        <button className='ml-5' onClick={ (e) => handleLoginOrSignUp(e, 'register') }>Register</button>
+        <button id="sign_in" onClick={(e) => handleLoginOrSignUp(e, 'login') } >Login</button>
+        <button id="sing_up" className='ml-5' onClick={ (e) => handleLoginOrSignUp(e, 'register') }>Register</button>
       </>
     )
   }

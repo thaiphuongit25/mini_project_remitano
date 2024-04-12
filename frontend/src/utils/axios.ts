@@ -45,6 +45,9 @@ function setDefaultProperties(axiosInstace: AxiosInstance) {
         location.href = '/404'
       } else if (status >= INTERNAL_SERVER_ERROR_CODE) {
         location.href = '/500'
+      } else if (status === 401) {
+        localStorage.clear()
+        location.href = '/'
       }
 
       return Promise.reject(error)

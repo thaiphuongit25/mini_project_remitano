@@ -4,13 +4,13 @@ import Form from '@/components/movies/form'
 import Header from '@/components/layouts/header'
 import DefaultLayout from '@/components/layouts/default_layout'
 import withUserAuthentication from '@/hoc/withUserAuthentication'
-import { messageContent } from '@/store'
-import { useRecoilValue } from 'recoil'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SharePage = withUserAuthentication(() => {
-  const message = useRecoilValue(messageContent)
   return <>
     <Header title='Funny Movies' />
+    <ToastContainer />
     <Form />
   </>
 })
